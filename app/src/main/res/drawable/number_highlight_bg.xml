@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="oval">
+    <stroke android:color="@color/colorNumbersStroke" android:width="@dimen/number_highlight_strokeWidth" />
+    <solid android:color="@color/colorNumbersHighlightBg"/>
+    <size android:width="@dimen/number_highlight_width" android:height="@dimen/number_highlight_width"/>
+</shape>

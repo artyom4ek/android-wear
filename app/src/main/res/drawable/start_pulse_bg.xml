@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?android:attr/colorControlHighlight">
+    <item>
+        <shape android:shape="rectangle">
+            <stroke android:color="@color/colorStartPulseStroke" android:width="@dimen/start_pulse_strokeWidth" />
+            <solid android:color="@color/colorStartPulseBg"/>
+            <size android:width="@dimen/start_pulse_size" android:height="@dimen/start_pulse_size"/>
+            <corners android:radius="@dimen/start_pulse_cornerRadius" />
+        </shape>
+    </item>
+</ripple>
