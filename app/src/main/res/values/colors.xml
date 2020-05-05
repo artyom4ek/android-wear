@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#02A3C1</color>
+    <color name="colorBaseBackground">#2A3162</color>
+
+    <color name="colorStartPulseBg">#3B5998</color>
+    <color name="colorStartPulseStroke">#1E90FF</color>
+
+    <color name="colorNumbersBg">#3B5998</color>
+    <color name="colorNumbersHighlightBg">@color/colorAccent</color>
+    <color name="colorNumbersStroke">#1E90FF</color>
+
+    <color name="colorPulseIntensityBg">@color/colorPrimary</color>
+    <color name="colorPulseIntensityStroke">@color/colorPrimaryDark</color>
+
+    <color name="colorErrorTitle">#D32F2F</color>
+</resources>

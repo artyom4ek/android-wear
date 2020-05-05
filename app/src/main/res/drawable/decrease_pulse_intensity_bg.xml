@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ripple xmlns:android="http://schemas.android.com/apk/res/android"
+    android:color="?android:attr/colorControlHighlight">
+    <item >
+        <shape>
+            <solid android:color="@color/colorPulseIntensityBg" />
+            <stroke
+                android:width="@dimen/pulse_intensity_strokeWidth"
+                android:color="@color/colorPulseIntensityStroke" />
+            <corners
+                android:bottomRightRadius="@dimen/pulse_intensity_cornerRadius"
+                android:topRightRadius="@dimen/pulse_intensity_cornerRadius" />
+        </shape>
+    </item>
+</ripple>
