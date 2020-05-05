@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="box_inset_layout_padding">0dp</dimen>
+
+    <dimen name="intensity_container_marginTop">5dp</dimen>
+    <dimen name="intensity_container_marginBottom">5dp</dimen>
+
+    <dimen name="pulse_intensity_textSize">24sp</dimen>
+
+    <dimen name="intensity_duration_size">50dp</dimen>
+    <dimen name="intensity_duration_textSize">18sp</dimen>
+
+    <dimen name="intensity_duration_two_marginStart">4dp</dimen>
+    <dimen name="intensity_duration_two_marginEnd">4dp</dimen>
+
+    <dimen name="pulse_intensity_strokeWidth">1dp</dimen>
+    <dimen name="pulse_intensity_cornerRadius">10dp</dimen>
+    <dimen name="intensity_is_not_supported_textSize">24sp</dimen>
+
+    <dimen name="number_width">1dp</dimen>
+    <dimen name="number_strokeWidth">1dp</dimen>
+
+    <dimen name="number_highlight_width">@dimen/number_width</dimen>
+    <dimen name="number_highlight_strokeWidth">@dimen/number_strokeWidth</dimen>
+
+    <dimen name="start_pulse_strokeWidth">1dp</dimen>
+    <dimen name="start_pulse_size">1dp</dimen>
+    <dimen name="start_pulse_cornerRadius">10dp</dimen>
+</resources>

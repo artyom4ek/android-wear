@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="mainViewModel"
+            type="os.wear.pulse.presentation.viewModels.MainViewModel" />
+    </data>
+
+    <androidx.wear.widget.BoxInsetLayout
+        android:id="@+id/main_activity"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorBaseBackground"
+        android:padding="@dimen/box_inset_layout_padding"
+        tools:context=".presentation.activities.MainActivity"
+        tools:deviceIds="wear">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/bg_top_img"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:scaleType="fitXY"
+                android:src="@drawable/bg_top"
+                app:layout_constraintHeight_percent="0.5"
+                app:layout_constraintTop_toTopOf="parent"
+                android:contentDescription="@null" />
+
+            <Button
+                android:id="@+id/start_pulse"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{mainViewModel.mStartButtonStateName}"
+                android:background="@drawable/start_pulse_bg"
+                android:onClick="@{() -> mainViewModel.onClickStartButton()}"
+                app:layout_constraintBottom_toTopOf="@+id/intensity_container"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_chainStyle="packed"  />
+
+            <LinearLayout
+                android:id="@+id/intensity_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/intensity_container_marginTop"
+                android:layout_marginBottom="@dimen/intensity_container_marginBottom"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toTopOf="@+id/intensity_duration_container"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/start_pulse">
+
+                <Button
+                    android:id="@+id/increase_pulse_intensity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:visibility="@{mainViewModel.mIsIntensityEnabled ? View.VISIBLE : View.GONE}"
+                    android:enabled="@{mainViewModel.mVibrationStatusLiveData}"
+                    android:onClick="@{(v) -> mainViewModel.intensityControl(v)}"
+                    android:background="@drawable/increase_pulse_intensity_bg"
+                    android:text="@string/increase_pulse_intensity"
+                    android:textSize="@dimen/pulse_intensity_textSize" />
+
+                <Button
+                    android:id="@+id/decrease_pulse_intensity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:visibility="@{mainViewModel.mIsIntensityEnabled ? View.VISIBLE : View.GONE}"
+                    android:enabled="@{mainViewModel.mVibrationStatusLiveData}"
+                    android:onClick="@{(v) -> mainViewModel.intensityControl(v)}"
+                    android:background="@drawable/decrease_pulse_intensity_bg"
+                    android:text="@string/decrease_pulse_intensity"
+                    android:textSize="@dimen/pulse_intensity_textSize" />
+
+                <TextView
+                    android:id="@+id/intensity_is_not_supported"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="@{!mainViewModel.mIsIntensityEnabled ? View.VISIBLE : View.GONE }"
+                    android:text="@string/intensity_is_not_supported"
+                    android:textSize="@dimen/intensity_is_not_supported_textSize"
+                    android:textColor="@color/colorErrorTitle"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/intensity_duration_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/intensity_container">
+
+                <Button
+                    android:id="@+id/intensity_duration_one"
+                    android:layout_width="@dimen/intensity_duration_size"
+                    android:layout_height="@dimen/intensity_duration_size"
+                    android:layout_weight="1"
+                    android:tag="1"
+                    android:enabled="@{mainViewModel.mVibrationStatusLiveData}"
+                    android:onClick="@{(v) -> mainViewModel.intensityDurationControl(v)}"
+                    android:background="@drawable/number_bg"
+                    android:text="@string/one"
+                    android:textSize="@dimen/intensity_duration_textSize"  />
+
+                <Button
+                    android:id="@+id/intensity_duration_two"
+                    android:layout_width="@dimen/intensity_duration_size"
+                    android:layout_height="@dimen/intensity_duration_size"
+                    android:layout_marginStart="@dimen/intensity_duration_two_marginStart"
+                    android:layout_marginEnd="@dimen/intensity_duration_two_marginEnd"
+                    android:layout_weight="1"
+                    android:enabled="@{mainViewModel.mVibrationStatusLiveData}"
+                    android:onClick="@{(v) -> mainViewModel.intensityDurationControl(v)}"
+                    android:background="@drawable/number_bg"
+                    android:text="@string/two"
+                    android:textSize="@dimen/intensity_duration_textSize" />
+
+                <Button
+                    android:id="@+id/intensity_duration_three"
+                    android:layout_width="@dimen/intensity_duration_size"
+                    android:layout_height="@dimen/intensity_duration_size"
+                    android:layout_weight="1"
+                    android:enabled="@{mainViewModel.mVibrationStatusLiveData}"
+                    android:onClick="@{(v) -> mainViewModel.intensityDurationControl(v)}"
+                    android:background="@drawable/number_bg"
+                    android:text="@string/three"
+                    android:textSize="@dimen/intensity_duration_textSize" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.wear.widget.BoxInsetLayout>
+</layout>
